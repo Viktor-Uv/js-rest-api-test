@@ -1,6 +1,22 @@
-// TODO: Import API_ENDPOINT
+// Import API_ENDPOINT
+import {API_ENDPOINT} from "./index";
 
-// TODO: Create the addNewBook function that takes in newTitle, newStart, and newEnd as arguments. Inside the function, create a POST request for the new book. Store the response as a JSON in a variable called newBook and return it at the end of the function.
+// Create the addNewBook F that takes in newTitle, newStart, and newEnd as arguments. Inside the function, create a POST request for the new book. Store the response as a JSON in a variable called newBook and return it at the end of the function.
+export const addNewBook = async (newTitle, newStart, newEnd) => {
+    const response = await fetch(`${API_ENDPOINT}/books`, {
+        method: "POST",
+        body: JSON.stringify({
+            title: newTitle,
+            start: newStart,
+            end: newEnd
+        }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+    // Return a new book
+    return await response.json();
+}
 
 // TODO: Create the getBooks function that retrieves all of the books that have been saved to the back-end API
 
