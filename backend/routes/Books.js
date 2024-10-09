@@ -6,12 +6,14 @@ const router = express.Router();
  * A list of all books and their schedules that exist.
  * In a "real" application, this data would be maintained in a database.
  */
+const appStartDate = new Date();
+const newDate = new Date(appStartDate.getTime() + 4*24*60*60*1000);
 let ALL_BOOKS = [
   {
     id: uuidv4(),
     title: 'JavaScript For Dummies',
-    start: new Date(2021, 10, 1).toISOString(),
-    end: new Date(2021, 10, 5).toISOString(),
+    start: appStartDate.toISOString(),
+    end: newDate.toISOString(),
   }
 ];
 
